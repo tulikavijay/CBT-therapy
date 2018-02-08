@@ -19,5 +19,6 @@ from CBT import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url('',views.index,name='index'),
+    url(r'^$',views.index,name='home'),
+    url(r'^depression-test/',views.screen_test,name='screen_test'),
 ]
