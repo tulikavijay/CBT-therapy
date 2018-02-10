@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+ {% block style %}
+
+ {% endblock %}
+ {% block content %}
+  <div class="container userform">
+    <div class="row">
+      <div>
+        <form method='POST' action='' enctype="multipart/form-data">{% csrf_token %}
+          {{user_form|crispy}}
+          {{profile_form|crispy}}
+          <input type="submit" value='Submit' class='btn btn-default' style="background:black;color:white;margin-top:40px;"/>
+        </form>
+      </div>
+</div>
+</div>
+{% endblock %}

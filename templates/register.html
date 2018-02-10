@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block style %}
+.form_register{
+  padding-top:10px;
+  padding-bottom:100px;
+  margin: auto;
+  margin-top:60px;
+  width: 50%;
+}
+.heading{
+  margin: auto;
+  width: 50%;
+  padding: 40px;
+}
+{% endblock %}
+
+{% block content %}
+{% if registered %}
+<div class="margins">
+<div class="heading">Thankyou for registering.</div>
+<div class="sub-heading"><a href={% url 'home' %}>Return to the home page</a></div>
+</div>
+{% else %}
+<div class="form_register">
+<div class="heading">
+  <h2>Register:</h2>
+</div>
+  {% include 'userform.html' %}
+</div>
+{% endif %}
+{% endblock %}
+</body>

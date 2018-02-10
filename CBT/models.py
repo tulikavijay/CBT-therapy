@@ -8,3 +8,5 @@ class UserProfile(models.Model):
     phone=models.CharField(max_length=10)
     age=models.IntegerField()
     region=models.CharField(max_length=30)
+    def __unicode__(self):
+        return self.user.username
