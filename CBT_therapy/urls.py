@@ -28,4 +28,5 @@ urlpatterns = [
     url(r'^depression-test/',views.screen_test,name='screen_test'),
     url(r'^register/',views.register,name='register'),
     url(r'^logout/',auth_views.logout,name='logout'),
+    url(r'^locate/',views.locate,name='locate'),
 ]

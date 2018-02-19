@@ -34,3 +34,6 @@ def register(request):
         profile_form=UserProfileForm()
 
     return render(request,'register.html',{'user_form':user_form,'profile_form':profile_form,'registered':registered})
+
+def locate(request):
+    return render(request,'map.html',{})

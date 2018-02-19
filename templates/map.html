@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+#map {
+  height: 500px;
+  margin: 100px auto 50px;
+  width: 800px;
+}
+{% endblock %}
+{% block content %}
+<div id="map">
+</div>
+{% block script %}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABMaRw82r65PmyKL1Lyus9uUJLto0Nnbc&libraries=places&callback=initMap" async defer>
+</script>
+<script type="text/javascript" src="{% static '/admin/js/map.js' %}">
+</script>
+{% endblock %}
+{% endblock %}
