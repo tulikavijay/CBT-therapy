@@ -11,7 +11,7 @@ class UserForm(forms.ModelForm):
 class UserProfileForm(forms.ModelForm):
     class Meta():
         model=UserProfile
-        fields=['phone','age','region','therapist']
+        fields=['phone','age','region']
 
 class TherapistForm(forms.ModelForm):
 	class Meta():

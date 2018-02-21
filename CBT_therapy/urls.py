@@ -29,4 +29,5 @@ urlpatterns = [
     url(r'^register/',views.register,name='register'),
     url(r'^logout/',auth_views.logout,name='logout'),
     url(r'^locate/',views.locate,name='locate'),
+    url(r'^register_for_cbt_therapy/',views.registerCBT,name='registerCBT'),
 ]
