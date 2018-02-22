@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block style %}
+ .jumbotron{
+   margin:120px auto 60px;
+ }
+ .cbt{
+ font-family:'Neucha'
+}
+{% endblock %}
+{% block content %}
+<div class="cbt">
+	<div class="jumbotron">
+  <h1 class="display-10">Cognitive-behavioral therapy (CBT) - 14 Weeks Course</h1>
+  <p class="lead">
+	Cognitive-behavioral therapy (CBT) is a psycho-social intervention that is the most widely used evidence-based practice for improving mental health. Guided by empirical research, CBT focuses on the development of personal coping strategies that target solving current problems and changing unhelpful patterns in cognitions (e.g. thoughts, beliefs, and attitudes), behaviors, and emotional regulation.It was originally designed to treat depression, and is now used for a number of mental health conditions. (<i>source:<a href='https://en.wikipedia.org/wiki/Cognitive_behavioral_therapy'>Wikipedia</a></i>)
+  </p>
+  <hr class="my-10">
+
+  {% if user.is_authenticated and registered %}
+           <p>
+  	You are doing well! Check your progress now!
+  </p>
+           {% else %}
+  <p>
+  	This course will help you connect to your nearest therapist and a program that will span over 14 Weeks. The first step in tackling depression is simple, Just press Apply. We are here to help you!
+  	PS : Register your details so we can find the best therapist for you.
+  </p>
+  {% endif %}
+  {% if user.is_authenticated %}
+   <p class="lead">
+    <a class="btn btn-primary btn-lg" href="#!" role="button">Apply</a>
+  </p>
+  {% else %}
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="{% url 'register' %}" role="button">Apply</a>
+  </p>
+  {% endif %}
+</div>
+</div>
+     
+{% endblock %}

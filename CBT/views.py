@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 # Forms
 from .forms import UserForm,UserProfileForm,CBT_therapyForm
 #Models
-from .models import Therapist
+from .models import Therapist,CBT_therapy
 # Create your views here.
 def index(request):
     return render(request,'home.html',{})
@@ -55,3 +55,12 @@ def registerCBT(request):
         cbt_therapy_form=CBT_therapyForm()
     return render(request,'register_for_cbt.html',{'cbt_therapy_form':cbt_therapy_form,'registered':registered})
 
+def viewCBT(request):
+    registered=False
+    if request.user.is_authenticated():
+        user=request.user
+        if(CBT_therapy.objects.filter(user=user)):
+            registered=True
+        else:
+            registered=False
+    return render(request,'cbt.html',{registered:registered})

@@ -28,6 +28,7 @@ class CBT_therapy(models.Model):
        Many to one relation with weekly session.
     """
     start_date = models.DateField()
+    session_time=models.TimeField()
     therapist=models.OneToOneField(Therapist)
     user=models.OneToOneField(User,on_delete=models.CASCADE)
 

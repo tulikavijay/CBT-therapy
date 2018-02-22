@@ -21,7 +21,12 @@ class TherapistForm(forms.ModelForm):
 class CBT_therapyForm(forms.ModelForm):
 	class Meta():
 		model=CBT_therapy
-		fields=['start_date','therapist','user']
+		fields=['start_date','session_time','therapist','user']
+
+class RegisterCBTForm(forms.ModelForm):
+	class Meta():
+		model=CBT_therapy
+		fields=['start_date','session_time']
 
 class WeeklySessionForm(forms.ModelForm):
 	class Meta():

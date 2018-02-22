@@ -24,15 +24,9 @@
              <a class="nav-link" href={% url 'register' %}>Register</a>
            </li>
            {% endif %}
-           {% if user.is_authenticated %}
            <li class="nav-item">
-             <a class="nav-link" href='#'>CBT therapy</a>
+             <a class="nav-link" href={% url 'viewCBT' %}>CBT therapy</a>
            </li>
-           {% else %}
-           <li class="nav-item">
-             <a class="nav-link" href={% url 'register' %}>CBT therapy</a>
-           </li>
-           {% endif %}
            <li class="nav-item">
              <a class="nav-link" href={% url 'locate' %}>Find Nearest center</a>
            </li>
