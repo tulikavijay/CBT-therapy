@@ -1,0 +1,72 @@
+{% extends 'viewflow/base_module.html' %}
+{% load i18n viewflow material_frontend viewflow_frontend %}
+
+{% block breadcrumbs_items %}
+{% include 'viewflow/includes/breadcrumb_category.html' %}
+<a href="{% flowurl view.flow_class 'index' %}?{{ request|query_back }}">{{ view.flow_class.process_title }}</a>
+<a class="active">#{{ process.pk }}</a>
+{% endblock %}
+
+{% block content %}
+{% block left-panel %}
+<div class="left-panel">
+    <div class="card">
+        <div class="card-content">
+            <div class="card-title">{{ process.summary }}</div>
+            <table class="table bordered highlight">
+                <thead>
+                    <th>{% trans '#' %}</th>
+                    <th>{% trans 'Description' %}</th>
+                    <th>{% trans 'Owner' %}</th>
+                    <th class="hide-on-small-only">{% trans 'Started' %}</th>
+                    <th class="hide-on-small-only">{% trans 'Finished' %}</th>
+                    <th>{% trans 'Status' %}</th>
+                </thead>
+                <tbody>
+                    {% for task in task_list %}
+                    <tr>
+                        <td>
+                            {% flowurl task user=request.user as task_url %}
+                            {% if task_url %}
+                            <a href="{{ task_url }}?{{ request|query_back:'here_if_none' }}">
+                                {{ task.process.id }}/{{ task.id }}
+                            </a>
+                            {% else %}
+                            {{ task.process.id }}/{{ task.id }}
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if task_url %}
+                            <a href="{{ task_url }}?{{ request|query_back:'here_if_none' }}">
+                                {{ task.summary|default:task.flow_task }}
+                            </a>
+                            {% else %}
+                            {{ task.summary|default:task.flow_task }}
+                            {% endif %}
+                        </td>
+                        <td>{{ task.owner|default:"" }}</td>
+                        <td class="hide-on-small-only">{{ task.created }}</td>
+                        <td class="hide-on-small-only">{{ task.finished|default:"" }}</td>
+                        <td>{{ task.get_status_display }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="card-action right-align">
+            {% if view.flow_class|manage_permission_name in perms %}
+            <a class="btn-flat black-text {% if process.status != 'NEW' %}disabled{% endif %}"
+               href="{% flowurl process 'action_cancel' %}?{{ request|query_back }}">{% trans 'Cancel' %}</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block right-panel %}
+<div class="right-panel">
+    {% with hide_active_tasks=True %}
+    {% include_process_data process %}
+    {% endwith %}
+</div>
+{% endblock %}
+{% endblock %}

@@ -5,7 +5,7 @@ from .models import UserProfile,Therapist,CBT_therapy,WeeklySession
 # Register your models here.
 
 class UserProfileAdmin(admin.ModelAdmin):
-    list_display=["__unicode__","phone","age","region","therapist"]
+    list_display=["__unicode__","phone","age","region"]
     form=UserProfileForm
 
 class TherapistAdmin(admin.ModelAdmin):

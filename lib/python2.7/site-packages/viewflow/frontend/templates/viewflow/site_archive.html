@@ -1,0 +1,9 @@
+{% extends 'material/frontend/views/list.html' %}
+{% load i18n material_frontend viewflow viewflow_frontend %}
+
+{% block breadcrumbs_items %}
+<a class="active" href="{% url 'viewflow:archive' %}">{% trans 'Participated' %}</a>
+{% endblock %}
+
+
+{% block action_btn %}{% endblock %}

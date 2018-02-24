@@ -19,7 +19,6 @@ class UserProfile(models.Model):
     phone = models.CharField(validators=[phone_regex],max_length=17,blank=True)
     age=models.IntegerField()
     region=models.CharField(max_length=30)
-    therapist=models.OneToOneField(Therapist)
     def __unicode__(self):
         return self.user.username
 

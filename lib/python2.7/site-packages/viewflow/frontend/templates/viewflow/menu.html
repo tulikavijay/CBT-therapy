@@ -1,0 +1,26 @@
+{% load i18n viewflow viewflow_frontend %}
+<ul>
+    <li><a href="{% url 'viewflow:index' %}">{% trans 'Inbox' %} <span class="badge" id="id_viewflow_inbox_count" data-turbolinks-update>{{ current_module.flows|inbox_count:user }}</span></a></li>
+    <li><a href="{% url 'viewflow:queue' %}">{% trans 'Unassigned' %} <span class="badge" id="id_viewflow_queue_count" data-turbolinks-update>{{ current_module.flows|queue_count:user }}</span></a></li>
+    <li><a href="{% url 'viewflow:archive' %}">{% trans 'Participated' %}</a></li>
+    <li class="submenu">
+        <ul class="collapsible">
+            <li>
+                <a class="collapsible-header">{% trans 'Processes' %}</a>
+                <div class="collapsible-body">
+                    <ul>
+                        {% for title, flow_class in module.sites %}
+                        {% if flow_class|view_permission_name in perms %}
+                        <li>
+                            <a href="{% flowurl flow_class 'index' ns='viewflow' ns_map=current_module.ns_map %}">
+                                {{ title }}
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </li>
+</ul>

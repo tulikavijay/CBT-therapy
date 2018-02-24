@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load crispy_forms_tags %}
+{% load crispy_forms_tags %} 
  {% block style %}
 
  {% endblock %}
@@ -8,9 +8,10 @@
     <div class="row">
       <div>
         <form method='POST' action='' enctype="multipart/form-data">{% csrf_token %}
-          {{user_form|crispy}}
-          {{profile_form|crispy}}
-          <input type="submit" value='Submit' class='btn btn-default' style="background:black;color:white;margin-top:40px;"/>
+         
+		{{ user_form | crispy}}
+		{{ profile_form | crispy }}
+        <button type="submit" name="_submit" class="btn">Submit</button>
         </form>
       </div>
 </div>

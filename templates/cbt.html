@@ -29,7 +29,7 @@
   {% endif %}
   {% if user.is_authenticated %}
    <p class="lead">
-    <a class="btn btn-primary btn-lg" href="#!" role="button">Apply</a>
+    <a class="btn btn-primary btn-lg" href="{% url 'registerCBT' %}" role="button">Apply</a>
   </p>
   {% else %}
   <p class="lead">

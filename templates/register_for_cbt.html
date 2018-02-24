@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block style %}
+.cbt_form{
+	margin:400px auto;
+}
+{% endblock %}
+{% block content %}
+ <form method="POST" class="cbt_form">
+        {% csrf_token %}
+        {{ register_form| crispy }}
+        <button type="submit" name="_submit" class="btn">Submit</button>
+    </form>
+
+{% endblock %}

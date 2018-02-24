@@ -27,7 +27,10 @@ urlpatterns = [
     url(r'^$',views.index,name='home'),
     url(r'^depression-test/',views.screen_test,name='screen_test'),
     url(r'^register/',views.register,name='register'),
+    url(r'^login/$', auth_views.login,{'template_name': 'login.html'}, name='login'),
     url(r'^logout/',auth_views.logout,name='logout'),
     url(r'^locate/',views.locate,name='locate'),
     url(r'^CBT_therapy/',views.viewCBT,name='viewCBT'),
+    url(r'^Register_for_therapy/',views.registerCBT,name='registerCBT'),
+
 ]

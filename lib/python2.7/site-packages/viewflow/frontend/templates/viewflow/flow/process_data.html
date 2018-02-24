@@ -1,0 +1,52 @@
+{% load i18n viewflow material_frontend viewflow_frontend %}
+
+{% for root, fields, root_url in process_data %}
+<div class="card detail-card">
+    <div class="card-content">
+        <span class="card-title">{{ root }} #{{ process.pk }}</span>
+        {% if root_url %}
+        <a href="{{ root_url }}" class="card-edit" target="_blank" data-turbolinks="false" style="float:right">({% trans 'edit' %})</a>
+        {% endif %}
+        <dl class="dl-horizontal">
+            {% for name, value in fields %}
+            <dt>{{ name }}:</dt> 
+            <dd>
+                {% if value == True %}{% trans 'Yes' %}{% else %}
+                {% if value == False %}{% trans 'No' %}{% else %}
+                {{ value }}{% endif %}{% endif %}
+            </dd>
+            {% endfor %}
+        </dl>
+    </div>
+</div>
+
+{% if not hide_active_tasks and forloop.counter == 1 and process.active_tasks %}
+<div class="col s12">
+    <div class="card detail-card">
+        <div class="card-content">
+            <span class="card-title">{% trans 'Active tasks' %}</span>
+            <table>
+                <thead>
+                    <tr>
+                        <th>{% trans 'Task' %}</th>
+                        <th>{% trans 'Owner' %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for task in process.active_tasks %}
+                    {% if task.flow_task.task_type == 'HUMAN' or task.flow_task.task_type == 'JOB' %}
+                    <tr>
+                        <td>
+                            <a href="{% flowurl task user=request.user %}?{{ request|query_back }}">{{ task.flow_task }}/#{{ task.pk}}</a>
+                        </td>
+                        <td>{{ task.owner|default:"" }}</td>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endfor %}

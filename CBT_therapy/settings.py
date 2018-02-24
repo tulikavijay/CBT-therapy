@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'CBT',
     #add-on
     'crispy_forms',
+    'viewflow',
+    'material',
+    'material.frontend',
 ]
 
 MIDDLEWARE = [
@@ -128,3 +131,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     # '/var/www/static/',
 ]
+
+LOGIN_REDIRECT_URL = 'home'

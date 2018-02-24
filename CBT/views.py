@@ -1,9 +1,9 @@
 from django.shortcuts import render
 # for login and logout
-from django.contrib.auth import login, authenticate,logout,update_session_auth_hash
+from django.contrib.auth import login,authenticate,logout,update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 # Forms
-from .forms import UserForm,UserProfileForm,CBT_therapyForm
+from .forms import UserForm,UserProfileForm,CBT_therapyForm,RegisterCBTForm
 #Models
 from .models import Therapist,CBT_therapy
 # Create your views here.
@@ -41,19 +41,25 @@ def locate(request):
     return render(request,'map.html',{})
 
 def registerCBT(request):
-    registered=False
     if request.method == 'POST':
-        cbt_therapy_form=CBT_therapyForm(request.POST or None)
-
-        if cbt_therapy_form.is_valid():
-            cbt_form=cbt_therapy_form.save()
-            region=cbt_therapy_form.cleaned_data.get('region')
-            cbt_form.therapist=Therapist.objects.filter(region=region)
-            cbt_form.save()
-            registered=True
+        register_form = RegisterCBTForm(request.POST or None)
+        start_date=register_form.cleaned_data.get('start_date')
+        session_time=register_form.cleaned_data.get('session_time')
+        user=request.user
+        region=UserProfileForm.objects.get(user=user).region
+        therapist=Therapist.objects.filter(region=region)
+        cbt=CBT_therapy(
+            user=user,
+            start_date=start_date,
+            session_time=session_time,
+            therapist=therapist
+            )
+        cbt.save(force_insert=True)
     else:
-        cbt_therapy_form=CBT_therapyForm()
-    return render(request,'register_for_cbt.html',{'cbt_therapy_form':cbt_therapy_form,'registered':registered})
+        register_form = RegisterCBTForm()
+    return render(request,'register_for_cbt.html',{register_form:register_form})
+
+
 
 def viewCBT(request):
     registered=False
