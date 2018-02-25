@@ -40,9 +40,6 @@ INSTALLED_APPS = [
     'CBT',
     #add-on
     'crispy_forms',
-    'viewflow',
-    'material',
-    'material.frontend',
 ]
 
 MIDDLEWARE = [
@@ -133,3 +130,7 @@ STATICFILES_DIRS = [
 ]
 
 LOGIN_REDIRECT_URL = 'home'
+
+USE_L10N = True
+USE_TZ = True 
+USE_I18N = True

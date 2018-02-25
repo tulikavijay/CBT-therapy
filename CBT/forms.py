@@ -23,10 +23,21 @@ class CBT_therapyForm(forms.ModelForm):
 		model=CBT_therapy
 		fields=['start_date','session_time','therapist','user']
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
+
+class TimeInput(forms.TimeInput):
+    input_type = 'time'
+
 class RegisterCBTForm(forms.ModelForm):
 	class Meta():
 		model=CBT_therapy
 		fields=['start_date','session_time']
+		widgets = {
+            'start_date': DateInput(),
+            'session_time':TimeInput(),
+        }
 
 class WeeklySessionForm(forms.ModelForm):
 	class Meta():

@@ -2,14 +2,19 @@
 {% load crispy_forms_tags %}
 {% block style %}
 .cbt_form{
-	margin:400px auto;
+	margin:200px auto;
+	width:400px;
+	font-size:20px;
+}
+button{
+	margin-top:30px;
 }
 {% endblock %}
 {% block content %}
- <form method="POST" class="cbt_form">
+ <form method="POST" class="cbt_form" action='' enctype="multipart/form-data"> 
         {% csrf_token %}
         {{ register_form| crispy }}
-        <button type="submit" name="_submit" class="btn">Submit</button>
+        <button type="submit" name="_submit" class="btn btn-primary btn-lg" class="form_button">Submit</button>
     </form>
 
 {% endblock %}

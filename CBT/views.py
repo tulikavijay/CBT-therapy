@@ -43,10 +43,11 @@ def locate(request):
 def registerCBT(request):
     if request.method == 'POST':
         register_form = RegisterCBTForm(request.POST or None)
-        start_date=register_form.cleaned_data.get('start_date')
-        session_time=register_form.cleaned_data.get('session_time')
+        start_date=register_form.cleaned_data['start_date']
+        session_time=register_form.cleaned_data['session_time']
         user=request.user
-        region=UserProfileForm.objects.get(user=user).region
+        username=UserProfileForm.objects.get(user=user)
+        region=username.get_region()
         therapist=Therapist.objects.filter(region=region)
         cbt=CBT_therapy(
             user=user,
@@ -57,7 +58,7 @@ def registerCBT(request):
         cbt.save(force_insert=True)
     else:
         register_form = RegisterCBTForm()
-    return render(request,'register_for_cbt.html',{register_form:register_form})
+    return render(request,'register_for_cbt.html',{'register_form':register_form})
 
 
 

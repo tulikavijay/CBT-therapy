@@ -21,6 +21,8 @@ class UserProfile(models.Model):
     region=models.CharField(max_length=30)
     def __unicode__(self):
         return self.user.username
+    def get_region(self):
+        return self.region
 
 class CBT_therapy(models.Model):
     """docstring for CBT_therapy : has one to one relationship with user and therapist.
