@@ -1,5 +1,5 @@
 from django import forms
-from .models import UserProfile,Therapist,CBT_therapy,WeeklySession
+from .models import UserProfile,Therapist,CBT_therapy,WeeklySession,Challenge
 from django.contrib.auth.models import User
 
 class UserForm(forms.ModelForm):
@@ -44,3 +44,8 @@ class WeeklySessionForm(forms.ModelForm):
 		model=WeeklySession
 		fields=['session_date','session_time','challenge','week_no','therapy']
 		
+
+class ChallengeForm(forms.ModelForm):
+	class Meta():
+		model=Challenge
+		fields=['title']
