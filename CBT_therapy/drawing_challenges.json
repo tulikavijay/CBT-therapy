@@ -1,0 +1,105 @@
+[
+  {
+  	"model" : "CBT_therapy.Challenges",
+  	"pk": 1,
+  	"fields":{
+  		"title" :"Draw yourself at this point",
+  	},
+    
+  },
+  {
+  	"model" : "CBT_therapy.Challenges",
+  	"pk": 2,
+  	"fields":{
+  		 "title":"Draw the view in the room you are in",
+  	},
+   
+  },
+  {
+  	"model" : "CBT_therapy.Challenges",
+  	"pk": 3,
+  	"fields":{
+  		 "title" : "Draw something in 3 colors",
+  	},
+    
+  },
+  {
+  	"model" : "CBT_therapy.Challenges",
+  	"pk": 4,
+  	"fields":{
+  		  "title" : "Draw the view outside",
+  	},
+   
+  },
+  {
+  	"model" : "CBT_therapy.Challenges",
+  	"pk": 5,
+  	"fields":{
+  		  "title" : "Draw something in 5 minutes",
+  	},
+  },
+  {
+  	"model" : "CBT_therapy.Challenges",
+  	"pk": 6,
+  	"fields":{
+        "title" : "Draw someone near you",
+   	},
+  },
+  {
+  	"model" : "CBT_therapy.Challenges",
+  	"pk": 7,
+  	"fields":{
+        "title" : "Draw a present you got or gave",
+   	},
+  },
+  {
+  	"model" : "CBT_therapy.Challenges",
+  	"pk": 8,
+  	"fields":{
+       "title" : "Draw yourself at this point",
+   	},
+  },
+  { 
+  	"model" : "CBT_therapy.Challenges",
+  	"pk": 9,
+  	"fields":{
+        "title" : "Draw how you are feeling today",
+   	},
+  },
+  {
+  	"model" : "CBT_therapy.Challenges",
+  	"pk": 10,
+  	"fields":{
+        "title" : "Draw a character from a book or a movie",
+   	},
+  },
+  {
+  	"model" : "CBT_therapy.Challenges",
+  	"pk": 11,
+  	"fields":{
+  		"title" : "Draw a fairy tale",
+   	},
+  },
+  {
+  	"model" : "CBT_therapy.Challenges",
+  	"pk": 12,
+  	"fields":{
+  			"title" : "Draw something you do not like",
+   	},
+  
+  },
+  {
+  	"model" : "CBT_therapy.Challenges",
+  	"pk": 13,
+  	"fields":{
+  			"title" : "Draw a place you want to go",
+   	},
+  },
+  {
+  	"model" : "CBT_therapy.Challenges",
+  	"pk": 14,
+  	"fields":{
+  			"title" : "Draw a congratulation banner for completing the therapy!"
+   	},
+  }
+]
