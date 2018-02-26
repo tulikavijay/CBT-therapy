@@ -6,10 +6,10 @@ from django.core.validators import RegexValidator
 # Create your models here.
 
 class Therapist(models.Model):
-    name = models.CharField(max_length=20,default='Not-Enrolled-yet')
+    name = models.CharField(max_length=20)
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
     contact = models.CharField(validators=[phone_regex], max_length=17,blank=True) 
-    region=models.CharField(max_length=30)
+    region=models.CharField(max_length=30,default='online')
     def __unicode__(self):
         return self.name
 

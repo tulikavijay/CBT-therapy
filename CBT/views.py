@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 # Forms
 from .forms import UserForm,UserProfileForm,CBT_therapyForm,RegisterCBTForm
 #Models
-from .models import Therapist,CBT_therapy
+from .models import Therapist,CBT_therapy,User,UserProfile
 # Create your views here.
 def index(request):
     return render(request,'home.html',{})
@@ -43,19 +43,24 @@ def locate(request):
 def registerCBT(request):
     if request.method == 'POST':
         register_form = RegisterCBTForm(request.POST or None)
-        start_date=register_form.cleaned_data['start_date']
-        session_time=register_form.cleaned_data['session_time']
-        user=request.user
-        username=UserProfileForm.objects.get(user=user)
-        region=username.get_region()
-        therapist=Therapist.objects.filter(region=region)
-        cbt=CBT_therapy(
-            user=user,
-            start_date=start_date,
-            session_time=session_time,
-            therapist=therapist
-            )
-        cbt.save(force_insert=True)
+        if register_form.is_valid():
+            start_date=register_form.cleaned_data['start_date']
+            session_time=register_form.cleaned_data['session_time']
+            user=request.user
+            username=UserProfile.objects.get(user=user)
+            region=username.get_region()
+            print(region)
+            try:
+                therapist_name=Therapist.objects.get(region=region)
+            except : 
+                therapist_name=Therapist.objects.get(region='online')
+            cbt=CBT_therapy(
+                user=user,
+                start_date=start_date,
+                session_time=session_time,
+                therapist=therapist_name
+                )
+            cbt.save(force_insert=True)
     else:
         register_form = RegisterCBTForm()
     return render(request,'register_for_cbt.html',{'register_form':register_form})
