@@ -134,3 +134,7 @@ LOGIN_REDIRECT_URL = 'home'
 USE_L10N = True
 USE_TZ = True 
 USE_I18N = True
+
+FIXTURE_DIRS=[
+     os.path.join(BASE_DIR,'CBT_therapy'),
+]
