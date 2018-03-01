@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+.dash{
+	margin-top:80px;
+	margin-bottom:60px;
+}
+.sessions{
+	margin-top:40px;
+}
+{% endblock %}
+{% block content %}
+<div class="container dash">
+
+      <!-- Portfolio Item Heading -->
+      <h1 class="my-4">Dashboard
+        <small>Secondary Text</small>
+      </h1>
+
+      <!-- Portfolio Item Row -->
+      <div class="row">
+
+        <div class="col-md-6">
+          <img class="img-fluid" src="http://placehold.it/750x500" alt="">
+        </div>
+
+        <div class="col-md-6">
+          <h3 class="my-3">User Profile</h3>
+          <ul>
+            <li>Profile name - {{user.user}}</li>
+            <li>Age - {{user.age}} </li>
+            <li>Region/Locality - {{user.region}}</li>
+            <li>Contact No - {{user.phone}}</li>
+          </ul>
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+      <!-- Related Session Row -->
+      <div class="sessions">
+      	{% if therapy %}
+      <h1 class="my-4">Upcoming Sessions
+        <small>Secondary Text</small>
+      </h1>
+      <div class="row">
+      {% for th in therapy %}
+         {% if not th.is_past_due %}
+           <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#">Week {{th.week_no}}</a>
+              </h4>
+              <p class="card-text">{{th.challenge}}</p>
+            </div>
+          </div>
+        </div>     
+       
+         {% endif %}
+      {% endfor %}
+       </div>
+       {% else %}
+        <div><a class="btn btn-primary btn-lg" href="{% url 'registerCBT' %}" role="button">Try CBT therapy!</a>
+</div>
+             {% endif %}
+
+      </div>
+      <!-- /.row -->
+</div>
+{% endblock %} 

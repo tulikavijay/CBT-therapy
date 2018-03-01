@@ -32,5 +32,5 @@ urlpatterns = [
     url(r'^locate/',views.locate,name='locate'),
     url(r'^CBT_therapy/',views.viewCBT,name='viewCBT'),
     url(r'^Register_for_therapy/',views.registerCBT,name='registerCBT'),
-
+    url(r'^dashboard/',views.dashboard,name='dashboard'),
 ]

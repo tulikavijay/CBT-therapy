@@ -72,7 +72,6 @@ def registerCBT(request):
                      therapy=cbt
                     )
                 w.save()
-            redirect('/home')
     else:
         register_form = RegisterCBTForm()
     return render(request,'register_for_cbt.html',{'register_form':register_form})
@@ -88,3 +87,14 @@ def viewCBT(request):
         else:
             registered=False
     return render(request,'cbt.html',{registered:registered})
+
+@login_required
+def dashboard(request):
+    user=request.user
+    username=UserProfile.objects.get(user=user)
+    try:
+        cbt=CBT_therapy.objects.get(user=user)
+        therapy=WeeklySession.objects.select_related().filter(therapy=cbt)
+    except:
+        therapy=False
+    return render(request,'dashboard.html',{'user':username,'therapy':therapy})

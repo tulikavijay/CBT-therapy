@@ -13,6 +13,10 @@
   width: 50%;
   padding: 40px;
 }
+.subheading{
+  margin:10px auto;
+  width: 50%;
+}
 {% endblock %}
 
 {% block content %}
@@ -28,6 +32,7 @@
 </div>
   {% include 'userform.html' %}
 </div>
+<div class="subheading">if already having an account :<a href={% url 'login' %}> Login</a></div>
 {% endif %}
 {% endblock %}
 </body>

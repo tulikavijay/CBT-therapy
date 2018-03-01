@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
+from datetime import date
 
 
 # Create your models here.
@@ -41,6 +42,8 @@ class WeeklySession(models.Model):
     week_no = models.IntegerField()
     challenge=models.CharField(max_length=150)
     therapy = models.ForeignKey(CBT_therapy)
+    def is_past_due(self):
+        return date.today() > self.session_date
 
         
 class Challenge(models.Model):
