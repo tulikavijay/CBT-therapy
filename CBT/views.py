@@ -1,11 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 # for login and logout
 from django.contrib.auth import login,authenticate,logout,update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 # Forms
 from .forms import UserForm,UserProfileForm,CBT_therapyForm,RegisterCBTForm
 #Models
-from .models import Therapist,CBT_therapy,User,UserProfile
+from .models import Therapist,CBT_therapy,User,UserProfile,Challenge,WeeklySession
+from datetime import datetime, timedelta
 # Create your views here.
 def index(request):
     return render(request,'home.html',{})
@@ -49,7 +50,6 @@ def registerCBT(request):
             user=request.user
             username=UserProfile.objects.get(user=user)
             region=username.get_region()
-            print(region)
             try:
                 therapist_name=Therapist.objects.get(region=region)
             except : 
@@ -60,7 +60,19 @@ def registerCBT(request):
                 session_time=session_time,
                 therapist=therapist_name
                 )
-            cbt.save(force_insert=True)
+            cbt.save()
+            session_date=start_date
+            for challenge in Challenge.objects.all():
+                session_date = session_date + timedelta(days=7)
+                w=WeeklySession(
+                     session_time =session_time,
+                     session_date =session_date,
+                     week_no=challenge.pk,
+                     challenge=challenge.title,
+                     therapy=cbt
+                    )
+                w.save()
+            redirect('/home')
     else:
         register_form = RegisterCBTForm()
     return render(request,'register_for_cbt.html',{'register_form':register_form})

@@ -30,8 +30,10 @@ class CBT_therapy(models.Model):
     """
     start_date = models.DateField()
     session_time=models.TimeField()
-    therapist=models.OneToOneField(Therapist)
-    user=models.OneToOneField(User,on_delete=models.CASCADE)
+    therapist=models.ForeignKey(Therapist)
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    class Meta:
+        unique_together = (('therapist', 'user'),)
 
 class WeeklySession(models.Model):
     session_date=models.DateField()
