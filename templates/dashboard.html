@@ -31,7 +31,9 @@
             <li>Age - {{user.age}} </li>
             <li>Region/Locality - {{user.region}}</li>
             <li>Contact No - {{user.phone}}</li>
+            <li>Therapist - {{cbt.therapist.name}}</li>
           </ul>
+          <a class="btn btn-primary btn-lg" href="{% url 'logout' %}" role="button">Logout</a>
         </div>
 
       </div>
