@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% block style %}
+.session{
+	margin-top:60px;
+}
+{% endblock %}
+{% block content %}
+<div class="container session">
+
+      <div class="row">
+
+        <!-- Post Content Column -->
+        <div class="col-lg-8">
+
+          <!-- Title -->
+          <h1 class="mt-4">Week {{therapy.week_no}}</h1>
+
+          <!-- Author -->
+          <p class="lead">
+            with
+            <a href="#">{{cbt.therapist}}</a>
+          </p>
+
+          <hr>
+
+          <!-- Date/Time -->
+          <p>Started at : {{cbt.session_time|time:"H:i" }}</p>
+
+          <hr>
+
+          <!-- Preview Image -->
+          <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
+
+          <hr>
+
+          <!-- Post Content -->
+          <p class="lead">Contact your therapist - Hope you have a good session!</p>
+
+          <p></p>
+
+          <blockquote class="blockquote">
+            <p class="mb-0">{{therapy.challenge}}</p>
+            <footer class="blockquote-footer">
+              <cite title="Source Title">Team Maverick</cite>
+            </footer>
+          </blockquote>
+          <a href="{% url 'draw' therapy.pk %}" class="btn btn-primary">Take the challenge</a>
+          <p>Behavioral activation : In Behavioral activation, Part of the process is looking at obstacles to taking part in that experience and deciding how to get past those obstacles by breaking the process down into smaller steps. This is achieved by a feature called Draw my life. 
+</p>
+
+          <p>In each week of the session, the patient will be assigned to draw something on the sketchpad on the website. The difficulty will increase each week, making the process engaging and fun.</p>
+
+          <hr>
+
+          <!-- Comments Form -->
+          <div class="card my-4">
+            <h5 class="card-header">Leave a Comment:</h5>
+            <div class="card-body">
+              <form>
+                <div class="form-group">
+                  <textarea class="form-control" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+
+         
+
+        </div>
+
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-4">
+
+          
+          <!-- Categories Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">Attended Sessions</h5>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-6">
+                  <ul class="list-unstyled mb-0">
+                   {% for th in attended %}
+                    {% if th.is_past_due %}
+                        <li><a href="#">Week {{th.week_no}}</a></li>
+            
+                    {% endif %}
+
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Side Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">{{therapist.name}}</h5>
+            <div class="card-body">
+             <ul>
+             <li>Contact - {{therapist.contact}}</li>
+              <li>Region - {{therapist.region}}</li>
+          </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+    
+
+{% endblock %}
+{% if session_active %}
+
+{% else %}
+     <div style="width:200px;margin:300px auto;">
+     	Session Hasn't started yet!
+     	<p>Check <a href="{% url 'dashboard' %}">dashboard</a> to check for upcoming sessions! </p>
+     </div>
+    {% endif %}

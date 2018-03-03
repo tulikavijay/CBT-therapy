@@ -7,6 +7,7 @@ from .forms import UserForm,UserProfileForm,CBT_therapyForm,RegisterCBTForm
 #Models
 from .models import Therapist,CBT_therapy,User,UserProfile,Challenge,WeeklySession
 from datetime import datetime, timedelta
+
 # Create your views here.
 def index(request):
     return render(request,'home.html',{})
@@ -98,3 +99,20 @@ def dashboard(request):
     except:
         therapy=False
     return render(request,'dashboard.html',{'user':username,'therapy':therapy,'cbt':cbt})
+
+@login_required
+def session(request,pk):
+    user=request.user
+    username=UserProfile.objects.get(user=user)
+    cbt=CBT_therapy.objects.get(user=user)
+    therapy=WeeklySession.objects.select_related().get(pk=pk)
+    attended=WeeklySession.objects.select_related().filter(therapy=cbt)
+    session_active=therapy.start_session()
+    therapist=Therapist.objects.get(name=cbt.therapist)
+    return render(request,'session.html',{'session_active':session_active,'therapist':therapist,'therapy':therapy,'cbt':cbt,'attended':attended})
+
+@login_required
+def draw(request,pk):
+    week=WeeklySession.objects.get(pk=pk)
+    challenge=week.challenge
+    return render(request,'draw.html',{'challenge':challenge})

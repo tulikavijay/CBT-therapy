@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
 from datetime import date
+from django.utils import timezone
+from datetime import datetime, timedelta
 
 
 # Create your models here.
@@ -44,6 +46,10 @@ class WeeklySession(models.Model):
     therapy = models.ForeignKey(CBT_therapy)
     def is_past_due(self):
         return date.today() > self.session_date
+    def start_session(self):
+        if(date.today() == self.session_date):
+            if(self.session <= timezone.now() and  timezone.now() < self.time.session_time + timedelta(hours=2)):
+                return True
 
         
 class Challenge(models.Model):

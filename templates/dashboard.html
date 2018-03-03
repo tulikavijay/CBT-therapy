@@ -52,7 +52,7 @@
           <div class="card h-100">
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#">Week {{th.week_no}}</a>
+                <a href="{% url 'session' th.pk %}">Week {{th.week_no}}</a>
               </h4>
               <p class="card-text">{{th.challenge}}</p>
             </div>

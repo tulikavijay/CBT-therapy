@@ -33,4 +33,6 @@ urlpatterns = [
     url(r'^CBT_therapy/',views.viewCBT,name='viewCBT'),
     url(r'^Register_for_therapy/',views.registerCBT,name='registerCBT'),
     url(r'^dashboard/',views.dashboard,name='dashboard'),
-]
+    url(r'^session/(\d+)/',views.session,name='session'),
+    url(r'^draw/(\d+)/',views.draw,name='draw'),
+]   
