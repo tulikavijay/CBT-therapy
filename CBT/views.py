@@ -110,8 +110,8 @@ def session(request,pk):
     therapy=WeeklySession.objects.select_related().get(pk=pk)
     attended=WeeklySession.objects.select_related().filter(therapy=cbt)
     session_active=therapy.start_session()
-    therapist=Therapist.objects.get(name=cbt.therapist)
-    return render(request,'session.html',{'session_active':session_active,'therapist':therapist,'therapy':therapy,'cbt':cbt,'attended':attended})
+    # therapist=Therapist.objects.get(name=cbt.therapist)
+    return render(request,'session.html',{'session_active':session_active,'therapy':therapy,'cbt':cbt,'attended':attended})
 
 @login_required
 def draw(request,pk):
