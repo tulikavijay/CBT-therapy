@@ -35,4 +35,5 @@ urlpatterns = [
     url(r'^dashboard/',views.dashboard,name='dashboard'),
     url(r'^session/(\d+)/',views.session,name='session'),
     url(r'^draw/(\d+)/',views.draw,name='draw'),
+    url(r'^sample-draw/(\d+)/',views.sampleDraw,name='sampledraw'),    
 ]   

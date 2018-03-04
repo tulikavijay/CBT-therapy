@@ -5,6 +5,8 @@
 }
 {% endblock %}
 {% block content %}
+
+{% if session_active %}
 <div class="container session">
 
       <div class="row">
@@ -111,14 +113,14 @@
 
     </div>
     <!-- /.container -->
-    
-
-{% endblock %}
-{% if session_active %}
-
-{% else %}
-     <div style="width:200px;margin:300px auto;">
-     	Session Hasn't started yet!
-     	<p>Check <a href="{% url 'dashboard' %}">dashboard</a> to check for upcoming sessions! </p>
+    {% else %}
+    <div style="width:200px;margin:300px auto;">
+      Session Hasn't started yet!
+      <p>Check <a href="{% url 'dashboard' %}">dashboard</a> to check for upcoming sessions! </p>
      </div>
     {% endif %}
+
+{% endblock %}
+
+
+     

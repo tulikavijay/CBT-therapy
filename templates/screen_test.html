@@ -221,7 +221,7 @@ button{
                 </div>
               </fieldset>
             </form>
-   <button type="submit" class="btn btn-primary">Submit</button>
+   <button type="submit" class="btn btn-primary srceenTest" id="srceenTest">Submit</button>
    <div class="card">
      <div class="card-body">
    <span id="Score"></span>
@@ -232,7 +232,7 @@ button{
 {% endblock %}
 {% block script %}
 <script>
-$('button').on('click',function(){
+document.getElementById('srceenTest').addEventListener('click',function(){
   var score = [];
   for(i=1;i<=7;i++){
     let t = document.getElementsByName(String(i));
@@ -247,6 +247,6 @@ $('button').on('click',function(){
   const finalScore= ((total-min)/(max-min))*100;
   console.log(parseInt(finalScore));
   document.getElementById('Score').innerHTML ='The Percentage shows level of Depression : '+String(parseInt(finalScore))+'%';
-});
+})
 </script>
 {% endblock %}

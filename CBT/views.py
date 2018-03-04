@@ -118,3 +118,7 @@ def draw(request,pk):
     week=WeeklySession.objects.get(pk=pk)
     challenge=week.challenge
     return render(request,'draw.html',{'challenge':challenge})
+
+def sampleDraw(request,pk):
+    challenge=Challenge.objects.get(pk=pk)
+    return render(request,'draw.html',{'challenge':challenge.title})

@@ -132,9 +132,9 @@ letter-spacing: -.05rem;
 	           <img class="first-slide" src="{% static '/admin/img/header1.png' %}" alt="First slide">
 	           <div class="container">
 	             <div class="carousel-caption d-none d-md-block text-left">
-	               <h1>Example headline.</h1>
-	               <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-	               <a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a>
+	               <h1>Depression Screening Test</h1>
+	               <p>Depression is a common and serious medical illness that negatively affects how you feel, the way you think and how you act. Take a test to Know more about your mental Health</p>
+	               <a class="btn btn-lg btn-primary" href="{% url 'screen_test' %}" role="button">Take a test</a>
 	             </div>
 	           </div>
 	         </div>
@@ -142,9 +142,9 @@ letter-spacing: -.05rem;
 	           <img class="second-slide" src="{% static '/admin/img/Fight(3).png' %}" alt="Second slide">
 	           <div class="container">
 	             <div class="carousel-caption d-none d-md-block">
-	               <h1>Another example headline.</h1>
-	               <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-	               <a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a>
+	               <h1>Cognitive Behavioral Therapy for Depression.</h1>
+	               <p>We find a mental health professional/therapist near the patient who can be assigned to the patient for the next 14-16 weeks. The patient and therapist hold sessions together where they can discuss problems and work on negative thoughts of the patient. </p>
+	               <a class="btn btn-lg btn-primary" href="{% url 'viewCBT' %}" role="button">Learn more</a>
 	             </div>
 	           </div>
 	         </div>
@@ -152,9 +152,9 @@ letter-spacing: -.05rem;
 	           <img class="third-slide" src="{% static '/admin/img/b.png' %}" alt="Third slide">
 	           <div class="container">
 	             <div class="carousel-caption d-none d-md-block text-right">
-	               <h1>One more for good measure.</h1>
-	               <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-	               <a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a><
+	               <h1>Draw my life!</h1>
+	               <p> In Behavioral activation, Part of the process is looking at obstacles to taking part in that experience and deciding how to get past those obstacles by breaking the process down into smaller steps.In each week of the session, the patient will be assigned to draw something on the sketchpad</p>
+	               <a class="btn btn-lg btn-primary" href="{% url 'sampledraw' 3 %}" role="button">Take a look</a>
 	             </div>
 	           </div>
 	         </div>
@@ -180,21 +180,21 @@ letter-spacing: -.05rem;
 	       <div class="row">
 	         <div class="col-lg-4">
 	           <img class="rounded-circle" src="{% static '/admin/img/circle1.png' %}" alt="Generic placeholder image" width="140" height="140">
-	           <h2>Heading</h2>
-	           <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-	           <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+	           <h2>Depression Screening Test</h2>
+	           <p>Depression is a common and serious medical illness that negatively affects how you feel, the way you think and how you act. Take a test to Know more about your mental Health</p>
+	           <p><a class="btn btn-secondary" href="{% url 'screen_test' %}" role="button">View details &raquo;</a></p>
 	         </div><!-- /.col-lg-4 -->
 	         <div class="col-lg-4">
 	           <img class="rounded-circle" src="{% static '/admin/img/circle2.png' %}" alt="Generic placeholder image" width="140" height="140">
-	           <h2>Heading</h2>
-	           <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-	           <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+	           <h2>Cognitive Behavioral Therapy for Depression.</h2>
+	           <p>We find a mental health professional/therapist near the patient who can be assigned to the patient for the next 14-16 weeks. The patient and therapist hold sessions together where they can discuss problems and work on negative thoughts of the patient.</p>
+	           <p><a class="btn btn-secondary" href="{% url 'viewCBT' %}" role="button">View details &raquo;</a></p>
 	         </div><!-- /.col-lg-4 -->
 	         <div class="col-lg-4">
 	           <img class="rounded-circle" src="{% static '/admin/img/circle3.png' %}" alt="Generic placeholder image" width="140" height="140">
-	           <h2>Heading</h2>
-	           <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-	           <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+	           <h2>Locate Mental health centers</h2>
+	           <p>Find nearest mental health comuunity and professional therapists and doctors.</p>
+	           <p><a class="btn btn-secondary" href="{% url 'locate' %}" role="button">View details &raquo;</a></p>
 	         </div><!-- /.col-lg-4 -->
 	       </div><!-- /.row -->
 
@@ -205,11 +205,12 @@ letter-spacing: -.05rem;
 
 	       <div class="row featurette">
 	         <div class="col-md-7">
-	           <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-	           <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+	           <h2 class="featurette-heading">Register Now! <span class="text-muted">Find Experts and therapy to suit you.</span></h2>
+	           <p class="lead">The objective of this project is to tackle depression in women by helping in diagnosis of depression and Cognitive Behavioral therapy for treating depression.</p>
+	           <a class="btn btn-secondary" href="{% url 'register' %}" role="button">Register &raquo;</a>
 	         </div>
 	         <div class="col-md-5">
-	           <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+	           <img class="featurette-image img-fluid mx-auto" alt="Generic placeholder image" src="{% static '/admin/img/register.png' %}">
 	         </div>
 	       </div>
 
@@ -217,11 +218,12 @@ letter-spacing: -.05rem;
 
 	       <div class="row featurette">
 	         <div class="col-md-7 push-md-5">
-	           <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-	           <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+	           <h2 class="featurette-heading">Draw My Life. <span class="text-muted">See for yourself.</span></h2>
+	           <p class="lead">Find something creative to do with your time.Save the picture you made each week and share it to others. Take a look how each of your week will be like : </p>
+	           <a class="btn btn-secondary" href="{% url 'sampledraw' 1 %}" role="button">View details &raquo;</a>
 	         </div>
 	         <div class="col-md-5 pull-md-7">
-	           <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+	           <img class="featurette-image img-fluid mx-auto" src="{% static '/admin/img/drwa.png' %}" alt="Generic placeholder image">
 	         </div>
 	       </div>
 
@@ -229,11 +231,11 @@ letter-spacing: -.05rem;
 
 	       <div class="row featurette">
 	         <div class="col-md-7">
-	           <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-	           <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+	           <h2 class="featurette-heading">Success Stories<span class="text-muted"> - Start Now.</span></h2>
+	           <p class="lead">Find Communities and people like you. It does get better!</p>
 	         </div>
 	         <div class="col-md-5">
-	           <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+	           <img class="featurette-image img-fluid mx-auto" src="{% static '/admin/img/successstory.png' %}" alt="Generic placeholder image">
 	         </div>
 	       </div>
 
