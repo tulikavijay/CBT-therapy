@@ -27,12 +27,17 @@
   	PS : Register your details so we can find the best therapist for you.
   </p>
   {% endif %}
-  {% if user.is_authenticated and not registered %}
+  {% if user.is_authenticated %}
+  {% if registered %}
    <p class="lead">
-    <a class="btn btn-primary btn-lg" href="{% url 'registerCBT' %}" role="button">Apply</a>
+    <a class="btn btn-primary btn-lg" href="{% url 'dashboard' %}" role="button">Check Progress</a>
   </p>
-  {% elif user.is_authenticated and registered %}
-        <a class="btn btn-primary btn-lg" href="{% url 'dashboard' %}" role="button">Check Progress</a>
+  {% endif %}
+  {% endif %}
+  {% if user.is_authenticated %}
+   {% if not registered %}
+        <a class="btn btn-primary btn-lg" href="{% url 'registerCBT' %}" role="button">Apply</a>
+        {% endif %}
   {% else %}
   <p class="lead">
     <a class="btn btn-primary btn-lg" href="{% url 'register' %}" role="button">Apply</a>

@@ -83,9 +83,11 @@ def viewCBT(request):
     registered=False
     if request.user.is_authenticated():
         user=request.user
-        if(CBT_therapy.objects.filter(user=user)):
+        try:
+            temp=CBT_therapy.objects.filter(user=user)
             registered=True
-        else:
+            print(registered)
+        except:
             registered=False
     return render(request,'cbt.html',{registered:registered})
 
