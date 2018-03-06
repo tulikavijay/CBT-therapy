@@ -1,0 +1,77 @@
+
+
+[
+   {
+      "model": "CBT.Therapist",
+      "pk": 1,
+      "fields": {
+         "name": "Paul Jackson",
+         "contact": "4567890323",
+         "region": "online"
+      }
+   },
+   {
+      "model": "CBT.Therapist",
+      "pk": 2,
+      "fields": {
+         "name": "Geeta Jha",
+         "contact": "27898902333",
+         "region": "Delhi"
+      }
+   },
+   {
+      "model": "CBT.Therapist",
+      "pk": 3,
+      "fields": {
+         "name": "om Prakash",
+         "contact": "27834690233",
+         "region": "Chandigarh"
+      }
+   },
+   {
+      "model": "CBT.Therapist",
+      "pk": 4,
+      "fields": {
+         "name": "Akansha",
+         "contact": "90834690233",
+         "region": "Kolkata"
+      }
+   },
+   {
+      "model": "CBT.Therapist",
+      "pk": 5,
+      "fields": {
+         "name": "Heena",
+         "contact": "90374560233",
+         "region": "Himachal Pradesh"
+      }
+   },
+   {
+      "model": "CBT.Therapist",
+      "pk": 6,
+      "fields": {
+         "name": "Tanya Aggarwal",
+         "contact": "87374560233",
+         "region": "Panjab"
+      }
+   },
+   {
+      "model": "CBT.Therapist",
+      "pk": 7,
+      "fields": {
+         "name": "Swati Bansal",
+         "contact": "98074560233",
+         "region": "Haryana"
+      }
+   },
+   {
+      "model": "CBT.Therapist",
+      "pk": 8,
+      "fields": {
+         "name": "Aashi Gupta",
+         "contact": "8902360233",
+         "region": "Bihar"
+      }
+   }
+]
+
