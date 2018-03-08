@@ -73,7 +73,6 @@ def registerCBT(request):
                      therapy=cbt
                     )
                 w.save()
-            redirect('https://nameless-island-79297.herokuapp.com/dashboard/')
     else:
         register_form = RegisterCBTForm()
     return render(request,'register_for_cbt.html',{'register_form':register_form})
