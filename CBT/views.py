@@ -100,6 +100,7 @@ def dashboard(request):
         therapy=WeeklySession.objects.select_related().filter(therapy=cbt)
     except:
         therapy=False
+        cbt=False
     return render(request,'dashboard.html',{'user':username,'therapy':therapy,'cbt':cbt})
 
 @login_required
