@@ -73,6 +73,7 @@ def registerCBT(request):
                      therapy=cbt
                     )
                 w.save()
+            return render(request,'home.html',{})
     else:
         register_form = RegisterCBTForm()
     return render(request,'register_for_cbt.html',{'register_form':register_form})
