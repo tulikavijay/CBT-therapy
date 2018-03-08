@@ -63,7 +63,6 @@ def registerCBT(request):
                 )
             cbt.save()
             session_date=start_date
-            registered=True
             for challenge in Challenge.objects.all():
                 session_date = session_date + timedelta(days=7)
                 w=WeeklySession(
@@ -74,10 +73,10 @@ def registerCBT(request):
                      therapy=cbt
                     )
                 w.save()
+            redirect('dashboard')
     else:
-        registered=False
         register_form = RegisterCBTForm()
-    return render(request,'register_for_cbt.html',{'register_form':register_form,'registered':registered})
+    return render(request,'register_for_cbt.html',{'register_form':register_form})
 
 
 

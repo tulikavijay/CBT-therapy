@@ -11,13 +11,9 @@ button{
 }
 {% endblock %}
 {% block content %}
-{% if registered %}
-<a href="{% url 'dashboard' %}">Return to Dashboard</a>
-{% else %}
  <form method="POST" class="cbt_form" action='' enctype="multipart/form-data"> 
         {% csrf_token %}
         {{ register_form| crispy }}
         <button type="submit" name="_submit" class="btn btn-primary btn-lg" class="form_button">Submit</button>
     </form>
-{% endif %}
 {% endblock %}
