@@ -25,7 +25,7 @@ SECRET_KEY = 'tym7-hn#nzaoovw-_f#czwy)e9&u)9i0yrm#^^l7xcmgl#qpv@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['nameless-island-79297.herokuapp.com','127.0.0.1','localhost']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -150,3 +150,7 @@ FIXTURE_DIRS=[
 # CSRF_COOKIE_SECURE = True
 # X_FRAME_OPTIONS = 'DENY'
 # SECURE_HSTS_PRELOAD = True
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
+SECURE_SSL_REDIRECT = False
+
