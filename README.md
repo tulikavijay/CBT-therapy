@@ -82,7 +82,7 @@ git clone git@github.com:tulikavijay/CBT-therapy.git
 ```
 Check the repository and branch for local development
 ```
-cd CBT-therapy-local-dev
+cd CBT-therapy
 ```
 ```
 virtualenv cbt
