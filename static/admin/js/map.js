@@ -1,4 +1,4 @@
-            var map;
+var map;
 
             function initMap() {
               if (navigator.geolocation) {
@@ -9,7 +9,22 @@
                       lng: position.coords.longitude
                     };
                     setPos(myLocation);
-                  });
+                  },
+                    function(error){
+                    switch(error.code){
+                        case 1:
+                            alert("Please enable geolocation permission in your browser settings to view this page");
+                            break;
+                        case 2:
+                            alert("There seems to be a problem getting the location. Check if GPS is enabled");
+                            break;
+                        case 3:
+                            alert("Getting your location timed out. Please try again.");
+                            break;        
+                    }
+                    console.log(error.message);            
+                });
+                  //
                 } catch (err) {
                   var myLocation = {
                     lat: 23.8701334,
@@ -75,5 +90,3 @@
               }
               map.fitBounds(bounds);
             }
-
-            
