@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
@@ -25,7 +24,7 @@ SECRET_KEY = 'tym7-hn#nzaoovw-_f#czwy)e9&u)9i0yrm#^^l7xcmgl#qpv@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['nameless-island-79297.herokuapp.com','127.0.0.1','localhost']
+ALLOWED_HOSTS = ['nameless-island-79297.herokuapp.com','127.0.0.1', '*', 'localhost']
 
 
 # Application definition
@@ -145,7 +144,7 @@ SECURE_HSTS_SECONDS = True
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False  # Set for docker
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 X_FRAME_OPTIONS = 'DENY'
