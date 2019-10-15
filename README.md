@@ -83,27 +83,15 @@ git clone git@github.com:tulikavijay/CBT-therapy.git
 Check the repository and branch for local development
 ```
 cd CBT-therapy
-```
-```
 virtualenv cbt
-```
-```
 source cbt/bin/activate
-```
-```
 git checkout branch local-dev
 ```
 Install requirements
 ```
 pip install --upgrade -r requirements.txt
-```
-```
 python manage.py loaddata therapist.json
-```
-```
 python manage.py loaddata drawing_challenges.json 
-```
-```
 python manage.py runserver
 ```
 </a>
