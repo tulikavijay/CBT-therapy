@@ -3,10 +3,12 @@
 {% block style %}
 .form_register{
   padding-top:10px;
-  padding-bottom:100px;
+  padding-bottom:20px;
   margin: auto;
   margin-top:60px;
   width: 50%;
+  font-family: 'Roboto', sans-serif;
+  font-size:15px;
 }
 .heading{
   margin: auto;
@@ -16,23 +18,27 @@
 .subheading{
   margin:10px auto;
   width: 50%;
+
+
 }
 {% endblock %}
 
 {% block content %}
+<div class="container">
 {% if registered %}
 <div class="margins">
 <div class="heading">Thankyou for registering.</div>
 <div class="sub-heading"><a href={% url 'home' %}>Return to the home page</a></div>
 </div>
 {% else %}
+<div class="breadcrumb">
 <div class="form_register">
 <div class="heading">
-  <h2>Register:</h2>
+  <u><center><h1>Register</h1></center></u>
 </div>
   {% include 'userform.html' %}
 </div>
-<div class="subheading">if already having an account :<a href={% url 'login' %}> Login</a></div>
+</div>
 {% endif %}
+</div>
 {% endblock %}
-</body>
