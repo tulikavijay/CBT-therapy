@@ -111,3 +111,11 @@ python manage.py runserver
 
 ### Live demo : [CBT-therapy](https://nameless-island-79297.herokuapp.com/)
 </a>
+
+### Docker 
+
+```
+docker build -t "cbt/therapy:1.0"
+docker run -d -p 8080:8000 --name cbt_1 cbt/therapy:1.0
+```
+* Access at http://localhost:8080/
