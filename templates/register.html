@@ -31,13 +31,11 @@
 <div class="sub-heading"><a href={% url 'home' %}>Return to the home page</a></div>
 </div>
 {% else %}
-<div class="breadcrumb">
 <div class="form_register">
 <div class="heading">
-  <u><center><h1>Register</h1></center></u>
+  <center><h1>Register</h1></center>
 </div>
   {% include 'userform.html' %}
-</div>
 </div>
 {% endif %}
 </div>
