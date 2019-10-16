@@ -110,6 +110,7 @@ python manage.py runserver
 <a name="demo"/>
 
 ### Live demo : [CBT-therapy](https://nameless-island-79297.herokuapp.com/)
+Note : The live demo hasn't been updated in an year. 
 </a>
 
 ### Docker 
