@@ -1,0 +1,13 @@
+{% if inputs %}
+    <div class="form-group{% if form_group_wrapper_class %} {{ form_group_wrapper_class }}{% endif %}">
+        {% if label_class %}
+            <div class="aab {{ label_class }}"></div>
+        {% endif %}
+
+        <div class="{{ field_class }}">
+            {% for input in inputs %}
+                {% include "bootstrap4/layout/baseinput.html" %}
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}
