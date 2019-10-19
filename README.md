@@ -91,7 +91,7 @@ virtualenv cbt
 source cbt/bin/activate
 ```
 ```
-git checkout branch local-dev
+git checkout local-dev
 ```
 Install requirements
 ```
