@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  service:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    environment:
+      - DEBUG=true
+      - DJANGO_SETTINGS_MODULE=CBT_therapy.settings
+      - LOG_LEVEL=debug
+      - SECRET_KEY
+    ports:
+      - "0.0.0.0:8000:8000"
+      - "0.0.0.0:8125:8125"
+    volumes:
+      - "./:/usr/src/app"

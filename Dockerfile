@@ -1,19 +1,22 @@
-# docker build -t "cbt/therapy:1.0"
-# docker run -d -p 8080:8000 --name cbt_1 cbt/therapy:1.0
-# Access at http://localhost:8080/
+FROM python:3.7.3-alpine
 
-FROM python:2.7-stretch
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
 
-COPY . /
+# install build/runtime dependencies inside the container
+RUN apk add --no-cache make build-base libffi-dev openssl postgresql-client postgresql-dev
+
+ENV DOCKERIZE_VERSION v0.6.1
+RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+    && tar -C /usr/local/bin -xzvf dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+    && rm dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+
+# install language-level dependencies inside the container
+COPY requirements.txt .
 
 RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
-RUN python manage.py loaddata therapist.json
+# copy the application source into the container
+COPY . /usr/src/app
 
-RUN python manage.py loaddata drawing_challenges.json 
-
-# Server
 EXPOSE 8000
-STOPSIGNAL SIGINT
-ENTRYPOINT ["python", "manage.py"]
-CMD ["runserver", "0.0.0.0:8000"]
