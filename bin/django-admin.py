@@ -1,4 +1,4 @@
-#!/home/tux/frames/CBT_therapy/bin/python
+#!/Users/ghalyahalansari/Development/CBT-therapy/bin/python3
 from django.core import management
 
 if __name__ == "__main__":

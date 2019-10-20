@@ -17,12 +17,14 @@ class Therapist(models.Model):
         return self.name
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User)
+    user = models.OneToOneField(User, on_delete= models.CASCADE)
+    is_registered = models.BooleanField(default=False)
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
     phone = models.CharField(validators=[phone_regex],max_length=17,blank=True)
     age=models.IntegerField()
     region=models.CharField(max_length=30)
-    def __unicode__(self):
+
+    def __str__(self):
         return self.user.username
     def get_region(self):
         return self.region
@@ -33,7 +35,7 @@ class CBT_therapy(models.Model):
     """
     start_date = models.DateField()
     session_time=models.TimeField()
-    therapist=models.ForeignKey(Therapist)
+    therapist=models.ForeignKey(Therapist,on_delete= models.CASCADE)
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     class Meta:
         unique_together = (('therapist', 'user'),)
@@ -43,7 +45,8 @@ class WeeklySession(models.Model):
     session_time=models.TimeField()
     week_no = models.IntegerField()
     challenge=models.CharField(max_length=150)
-    therapy = models.ForeignKey(CBT_therapy)
+    therapy = models.ForeignKey(CBT_therapy,on_delete= models.CASCADE)
+
     def is_past_due(self):
         return date.today() > self.session_date
     def start_session(self):
@@ -54,5 +57,6 @@ class WeeklySession(models.Model):
         
 class Challenge(models.Model):
     title=models.CharField(max_length=150)
-    def __unicode__(self):
+
+    def __str__(self):
         return self.title

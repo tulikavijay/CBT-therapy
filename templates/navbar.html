@@ -1,36 +1,41 @@
-<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
-     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-       <span class="navbar-toggler-icon"></span>
-     </button>
-     <a class="navbar-brand" href="#"></a>
-     <div class="collapse navbar-collapse" id="navbarCollapse">
-       <ul class="navbar-nav mr-auto">
-         <li class="nav-item active">
-           <a class="nav-link" href={% url 'home' %}>Home <span class="sr-only">(current)</span></a>
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+<div class="container">
+  <div class"container">
+  <a class="navbar-brand" href="{% url 'home' %}">
+   <img src="https://img.icons8.com/carbon-copy/100/000000/brain.png">{% if not request.user.is_authenticated%}CBT for Women{% else %} Welcome, {{request.user}}.{% endif %}</a>
+  </div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mx-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+         <a class="nav-link" href="{% url 'screen_test' %}">Diagnosis</a>
+      </li>
+         {% if request.user.is_authenticated %}
+         <li class="nav-item">
+           <a class="nav-link" href="{% url 'dashboard' user.id %}">Dashboard</a>
          </li>
          <li class="nav-item">
-           <a class="nav-link" href={% url 'screen_test' %}>Diagnosis</a>
+           <a class="nav-link" href="{% url 'logout' %}">Logout</a>
          </li>
+         {% else %}
+         <li class="nav-item">
+           <a class="nav-link" href="{% url 'register' %}">Register/Login</a>
+         </li>
+         {% endif %}
+         <li class="nav-item">
+           <a class="nav-link" href="{% url 'viewCBT' %}">CBT therapy</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="{% url 'locate' %}">Find Nearest center</a>
+        </li>
+    </ul>
+  </div>
+  </div>
 
-           {% if user.is_authenticated %}
-           <li class="nav-item">
-             <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
-           </li>
-           <li class="nav-item">
-             <a class="nav-link" href="{% url 'logout' %}?next=/">Logout</a>
-           </li>
-           {% else %}
-           <li class="nav-item">
-             <a class="nav-link" href={% url 'register' %}>Register/Login</a>
-           </li>
-           {% endif %}
-           <li class="nav-item">
-             <a class="nav-link" href={% url 'viewCBT' %}>CBT therapy</a>
-           </li>
-           <li class="nav-item">
-             <a class="nav-link" href={% url 'locate' %}>Find Nearest center</a>
-           </li>
-
-       </ul>
-     </div>
- </nav>
+</nav>

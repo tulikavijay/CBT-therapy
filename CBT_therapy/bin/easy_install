@@ -1,10 +1,10 @@
-#!/Users/ghalyahalansari/Development/CBT-therapy/bin/python3
+#!/Users/ghalyahalansari/Development/CBT-therapy/CBT_therapy/bin/python3
 
 # -*- coding: utf-8 -*-
 import re
 import sys
 
-from pip._internal.main import main
+from setuptools.command.easy_install import main
 
 if __name__ == '__main__':
     sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])

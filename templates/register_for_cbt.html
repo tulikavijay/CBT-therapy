@@ -1,19 +1,27 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
-{% block style %}
-.cbt_form{
-	margin:200px auto;
-	width:400px;
-	font-size:20px;
-}
-button{
-	margin-top:30px;
-}
-{% endblock %}
+
 {% block content %}
- <form method="POST" class="cbt_form" action='' enctype="multipart/form-data"> 
-        {% csrf_token %}
-        {{ register_form| crispy }}
-        <button type="submit" name="_submit" class="btn btn-primary btn-lg" class="form_button">Submit</button>
-    </form>
+
+ <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-8 mx-auto">
+        <div class="card card-account my-5">
+          <div class="card-body mx-auto">
+            <h5 class="card-title text-center">Register for CBT</h5>
+            <form class="form-account" action="{% url 'registerCBT' %}" id="register-form" role="form" autocomplete="off" method="POST"  enctype="multipart/form-data">
+              <div class="form-label-group">
+                {{ register_form|crispy }}
+                {% csrf_token %}
+                <br>
+                <div class="container">
+              	<button class="btn btn-primary btn-lg text-uppercase" type="submit">Submit</button>
+              </div>
+              <hr class="my-4">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}
