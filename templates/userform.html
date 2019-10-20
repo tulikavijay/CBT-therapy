@@ -1,37 +1,47 @@
-{% extends 'base.html' %}
-{% load crispy_forms_tags %}
 
+{% load crispy_forms_tags %}
 {% block content %}
-<center>
-  <div class="container userform">
+ <div class="container">
     <div class="row">
-      <form method="post" action="" enctype="multipart/form-data" novalidate>
-      {% csrf_token %}
-      <div class="row">
-        <div class="col-12 form-group">
-          {{ user_form.username|as_crispy_field }}
-        </div>
-        <div class="col-12">
-          {{ user_form.email|as_crispy_field }}
-        </div>
-        <div class="col-12">
-          {{ user_form.password|as_crispy_field }}
-        </div>
-         <div class="col-12">
-          {{ profile_form.phone|as_crispy_field }}
-        </div>
-        <div class="col-12">
-          {{ profile_form.age|as_crispy_field }}
-        </div>
-        <div class="col-12">
-          {{ profile_form.region|as_crispy_field }}
+      <div class="col-sm-9 col-md-7 col-lg-8 mx-auto">
+        <div class="card card-account my-5">
+          <div class="card-body mx-auto">
+            <h5 class="card-title text-center">Register</h5>
+            <form class="form-account" action="{% url 'register' %}" id="register-form" role="form" autocomplete="off" method="POST" enctype="multipart/form-data" novalidate>
+              <div class="form-label-group">
+                {% csrf_token %}
+                <div class="row">
+                  <div class="col-12 form-group">
+                    {{ user_form.username|as_crispy_field }}
+                  </div>
+                  <div class="col-12">
+                    {{ user_form.email|as_crispy_field }}
+                  </div>
+                  <div class="col-12">
+                    {{ user_form.password|as_crispy_field }}
+                  </div>
+                   <div class="col-12">
+                    {{ profile_form.phone|as_crispy_field }}
+                  </div>
+                  <div class="col-12">
+                    {{ profile_form.age|as_crispy_field }}
+                  </div>
+                  <div class="col-12">
+                    {{ profile_form.region|as_crispy_field }}
+                  </div>
+                </div>
+                <br>
+                <div class="container">
+                <button class="btn btn-primary btn-lg text-uppercase" type="submit">Register</button>
+                <br>
+                <div class="subheading">Already have an account?<a href={% url 'login' %}> Login</a></div>
+              </div>
+              <hr class="my-4">
+            </form>
+          </div>
         </div>
       </div>
-      <br>
-     <button type="submit" name="_submit" class="btn btn-lg btn-primary">Submit</button>
-     <div class="subheading">if already having an account :<a href={% url 'login' %}> Login</a></div>
-  </form>
-</div>
-</div>
-</center>
+    </div>
+  </div>
+
 {% endblock %}

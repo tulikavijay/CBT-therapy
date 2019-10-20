@@ -1,17 +1,9 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
-{% block style %}
- .cbt{
-   margin:120px auto 60px;
- }
- .cbt{
- font-family:'Poiret one'
-}
-{% endblock %}
 {% block content %}
 <div class="cbt container">
 	<div class="jumbotron my-4">
-  <h1 class="display-10">Cognitive-behavioral therapy (CBT) - 14 Weeks Course</h1>
+  <h1 class="display-10">Cognitive-behavioral therapy (CBT) - 14 Week Course</h1>
   <p class="lead">
 	Cognitive-behavioral therapy (CBT) is a psycho-social intervention that is the most widely used evidence-based practice for improving mental health. Guided by empirical research, CBT focuses on the development of personal coping strategies that target solving current problems and changing unhelpful patterns in cognitions (e.g. thoughts, beliefs, and attitudes), behaviors, and emotional regulation.It was originally designed to treat depression, and is now used for a number of mental health conditions. (<i>source:<a href='https://en.wikipedia.org/wiki/Cognitive_behavioral_therapy'>Wikipedia</a></i>)
   </p>
@@ -35,7 +27,7 @@
   {% endif %}
   {% endif %}
   {% if user.is_authenticated %}
-   {% if not registered %}
+   {% if not user.is_registered %}
         <a class="btn btn-primary btn-lg" href="{% url 'registerCBT' %}" role="button">Apply</a>
         {% endif %}
   {% else %}
