@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'tym7-hn#nzaoovw-_f#czwy)e9&u)9i0yrm#^^l7xcmgl#qpv@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['nameless-island-79297.herokuapp.com','127.0.0.1', '*', 'localhost']
 
