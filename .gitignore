@@ -84,5 +84,12 @@ target/
 __pycache__/
 local_settings.py
 
+### Environment / Virtual Environment ###
+**/bin
+**/lib
+**/local
+**/include
+local
+
 .env
 db.sqlite3
