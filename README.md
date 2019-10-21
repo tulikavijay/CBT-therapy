@@ -90,9 +90,7 @@ virtualenv cbt
 ```
 source cbt/bin/activate
 ```
-```
-git checkout branch local-dev
-```
+
 Install requirements
 ```
 pip install --upgrade -r requirements.txt
