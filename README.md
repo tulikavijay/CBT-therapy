@@ -113,10 +113,22 @@ python manage.py runserver
 Note : The live demo hasn't been updated in an year. 
 </a>
 
-### Docker 
+### Docker
+
+The web application can be run within docker using [docker-compose](https://docs.docker.com/install/overview/).
+
+To build and run the application:
 
 ```
-docker build -t "cbt/therapy:1.0"
-docker run -d -p 8080:8000 --name cbt_1 cbt/therapy:1.0
+docker-compose up -- build
 ```
-* Access at http://localhost:8080/
+
+Run the following commands in another terminal (once the application is running) to collect static files and import initial data into the application:
+
+```
+docker-compose run service python manage.py collectstatic
+docker-compose run service python manage.py loaddata therapist.json
+docker-compose run service python manage.py loaddata drawing_challenges.json
+```
+
+* Access at http://localhost:8000/
