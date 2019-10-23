@@ -1,9 +1,8 @@
-{% extends 'base.html' %}
 {% load crispy_forms_tags %}
 
 {% block content %}
 <center>
-  <div class="container userform">
+  <div class="userform">
     <div class="row">
       <form method="post" action="" enctype="multipart/form-data" novalidate>
       {% csrf_token %}
