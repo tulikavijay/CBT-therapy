@@ -7,22 +7,23 @@
 .form_register{
   padding-top:10px;
   padding-bottom:20px;
-  margin: auto;
-  margin-top:60px;
+  margin: 0 auto;
   width: 50%;
   font-family: 'Roboto', sans-serif;
   font-size:15px;
+  text-align: center;
 }
 .heading{
   margin: auto;
   width: 50%;
   padding: 40px;
 }
-.subheading{
-  margin:10px auto;
-  width: 50%;
-
-
+.user-form {
+  max-width: 300px;
+  margin: 0 auto;
+}
+.user-account {
+  margin-top: 10px;
 }
 {% endblock %}
 
@@ -35,7 +36,7 @@
 </div>
 {% else %}
 <div class="form_register">
-  <center><h2>Register</h2></center>
+  <h2>Register</h2>
   {% include 'userform.html' %}
 </div>
 {% endif %}
