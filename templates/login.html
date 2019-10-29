@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% block style %}
-.form_signup{
-  padding-top:100px;
-  padding-bottom:200px;
-  width:400px;
-  margin:40px auto;
+.form_signup {
+  max-width:300px;
+  margin: 120px auto;
+  font-family: 'Roboto', sans-serif;
+  font-size:15px;
 }
 {% endblock %}
 
@@ -13,7 +13,7 @@
 <div class="form_signup">
 	<form method="post">{% csrf_token %}
  {{ form | crispy }}
-     <button type="submit">Login</button>
+     <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
  </form>
 </div>
 {% endblock %}

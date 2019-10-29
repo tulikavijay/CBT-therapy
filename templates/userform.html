@@ -1,9 +1,7 @@
-{% extends 'base.html' %}
 {% load crispy_forms_tags %}
 
 {% block content %}
-<center>
-  <div class="container userform">
+  <div class="user-form">
     <div class="row">
       <form method="post" action="" enctype="multipart/form-data" novalidate>
       {% csrf_token %}
@@ -28,10 +26,11 @@
         </div>
       </div>
       <br>
-     <button type="submit" name="_submit" class="btn btn-lg btn-primary">Submit</button>
-     <div class="subheading">if already having an account :<a href={% url 'login' %}> Login</a></div>
+     <button type="submit" name="_submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+     <div class="user-account">
+       <span>if already having an account:</span><a href={% url 'login' %}> Login</a>
+    </div>
   </form>
 </div>
 </div>
-</center>
 {% endblock %}

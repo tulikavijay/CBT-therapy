@@ -1,27 +1,25 @@
 {% extends 'base.html' %}
-{% load staticfiles %}
+{% load static %}
 {% block style %}
 .container{
-  padding-top:120px;
+  margin-top:120px;
 }
-fieldset{
-  padding-top:40px;
-}
-button{
-  margin-bottom:50px;
+.screen-form {
+  margin-top: 20px;
 }
 .card{
-  margin-bottom:50px;
+  margin:20px 0 20px 0;
+  max-width: 375px;
 }
 {% endblock %}
 {% block content %}
 <div class='container'>
   <h2>Depression Screening Test</h2>
   <h5><i>Note : These tests are not accurate and you can locate and consult a mental health expert for through and accurate diagnosis.</i></h5>
-<form>
+<form class="screen-form">
 <fieldset class="form-group">
+    <p><b>Little interest or pleasure in doing things</b></p>
     <div class="form-check">
-      <p><b>Little interest or pleasure in doing things</b></p>
       <label class="form-check-label">
         <input type="radio" class="form-check-input" name="1" id="optionsRadios1" value="10" checked>
         Not at all
@@ -49,8 +47,8 @@ button{
 </form>
   <form>
   <fieldset class="form-group">
+      <p><b>Feeling down or depressed or hopeless</b></p>    
       <div class="form-check">
-        <p><b>Feeling down or depressed or hopeless</b></p>
         <label class="form-check-label">
           <input type="radio" class="form-check-input" name="2" id="optionsRadios1" value="10" checked>
           Not at all
@@ -78,8 +76,8 @@ button{
   </form>
     <form>
     <fieldset class="form-group">
+        <p><b>Trouble sleeping or sleeping too much</b></p>
         <div class="form-check">
-          <p><b>Trouble sleeping or sleeping too much</b></p>
           <label class="form-check-label">
             <input type="radio" class="form-check-input" name="3" id="optionsRadios1" value="10" checked>
             Not at all
@@ -107,8 +105,8 @@ button{
     </form>
       <form>
       <fieldset class="form-group">
+          <p><b>Poor apetite or over-eating</b></p>
           <div class="form-check">
-            <p><b>Poor apetite or over-eating</b></p>
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="4" id="optionsRadios1" value="10" checked>
               Not at all
@@ -136,8 +134,8 @@ button{
       </form>
         <form>
         <fieldset class="form-group">
-            <div class="form-check">
-              <p><b>Trouble concentrating on things, such as reading the newspaper or watching television</b></p>
+            <p><b>Trouble concentrating on things, such as reading the newspaper or watching television</b></p>          
+            <div class="form-check">              
               <label class="form-check-label">
                 <input type="radio" class="form-check-input" name="5" id="optionsRadios1" value="10" checked>
                 Not at all
@@ -165,8 +163,8 @@ button{
         </form>
           <form>
           <fieldset class="form-group">
-              <div class="form-check">
-                <p><b>Thoughts that you would be better off dead, or of hurting yourself</b></p>
+              <p><b>Thoughts that you would be better off dead, or of hurting yourself</b></p>            
+              <div class="form-check">                
                 <label class="form-check-label">
                   <input type="radio" class="form-check-input" name="6" id="optionsRadios1" value="10" checked>
                   Not at all
@@ -194,8 +192,8 @@ button{
           </form>
             <form>
             <fieldset class="form-group">
-                <div class="form-check">
-                  <p><b>Feeling bad about yourself - or that you are a failure or have let yourself or your family down</b></p>
+                <p><b>Feeling bad about yourself - or that you are a failure or have let yourself or your family down</b></p>              
+                <div class="form-check">                  
                   <label class="form-check-label">
                     <input type="radio" class="form-check-input" name="7" id="optionsRadios1" value="10" checked>
                     Not at all

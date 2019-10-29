@@ -1,40 +1,42 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block style %}
+.container{
+  margin-top:120px;
+}
 .form_register{
   padding-top:10px;
   padding-bottom:20px;
-  margin: auto;
-  margin-top:60px;
+  margin: 0 auto;
   width: 50%;
   font-family: 'Roboto', sans-serif;
   font-size:15px;
+  text-align: center;
 }
 .heading{
   margin: auto;
   width: 50%;
   padding: 40px;
 }
-.subheading{
-  margin:10px auto;
-  width: 50%;
-
-
+.user-form {
+  max-width: 300px;
+  margin: 0 auto;
+}
+.user-account {
+  margin-top: 10px;
 }
 {% endblock %}
 
 {% block content %}
 <div class="container">
 {% if registered %}
-<div class="margins">
-<div class="heading">Thankyou for registering.</div>
-<div class="sub-heading"><a href={% url 'home' %}>Return to the home page</a></div>
+<h2>Thank you for registering.</h2>
+<div class="sub-heading">
+  <a href={% url 'home' %}>Return to the home page</a>
 </div>
 {% else %}
 <div class="form_register">
-<div class="heading">
-  <center><h1>Register</h1></center>
-</div>
+  <h2>Register</h2>
   {% include 'userform.html' %}
 </div>
 {% endif %}
